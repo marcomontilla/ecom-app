@@ -42,9 +42,18 @@ export class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          {this.props.currentUser ? (
+            <Route exact path="/" component={HomePage} />
+          ) : null}
+          {this.props.currentUser ? (
+            <Route path="/shop" component={ShopPage} />
+          ) : null}
+          {this.props.currentUser ? (
+            <Route path="/checkout" component={CheckoutPage} />
+          ) : null}
+          {/* <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/checkout" component={CheckoutPage} />
+          <Route path="/checkout" component={CheckoutPage} /> */}
           <Route
             exact
             path="/signin"
